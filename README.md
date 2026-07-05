@@ -20,7 +20,7 @@ Update status as: ⬜ Not started → 🟡 In progress → ✅ Done
 
 ---
 
-## 📖 Entries
+## 📖 CASE OPeration
 
 #### Q1: How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question. 
 
@@ -42,36 +42,34 @@ from cd.facilities
 - caseing in SQL
 - Syntax : 
     CASE
-        WHEN condition1 THEN result1
-        WHEN condition2 THEN result2
-        ...
-        ELSE default_result
-    END
+    <br>    WHEN condition1 THEN result1
+    <br>    WHEN condition2 THEN result2
+    <br>    ...
+    <br>    ELSE default_result
+    <br>END
 ---
+## 📖 UNION Operation
 
-#### Q2: [Next exercise title]
-**Link:**
+#### Q2: You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example. Produce that list!
+
+**Link: https://pgexercises.com/questions/basic/union.html**
 
 **My query:**
 ```sql
-
+select surname from cd.members
+union 
+select name from cd.facilities;
 ```
-
--
-
 **Mistakes / gotchas:**
+- Learned union operator 
+- SELECT column1, column2, ...
+<br>FROM table1
+<br>[WHERE condition]
+<br>UNION
+<br>SELECT column1, column2, ...
+<br>FROM table2
+<br>[WHERE condition];
 
----
-## 🧠 Concept Cheat Sheet
-As you learn something reusable, add a short note here so you don't have to dig through entries later.
-| Concept | Quick note |
-| `SELECT *` | Grabs all columns — fine for exploring, avoid in production code |
-| `WHERE` | Filters rows before aggregation |
-| `JOIN` | |
-| `GROUP BY` | |
-| `HAVING` | |
-
----
 
 ## 🏁 Reflections
 A running space for bigger-picture thoughts as you move from basic → advanced.
