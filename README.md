@@ -114,22 +114,36 @@ m.surname = 'Farrell' and m.firstname = 'David';
     ON table1.common_column = table2.common_column;   
 ```
 
-## 📖 Entries
-#### Q5: Filter rows with WHERE
-**Link:**
+## 📖 Inner Join 2
+#### Q5: How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
+**Link: https://pgexercises.com/questions/joins/simplejoin2.html**
 
 **My query:**
 ```sql
--- SELECT * FROM orders WHERE amount > 100;
+select b.starttime as start, f.name 
+	from
+		cd.bookings as b 
+		inner join cd.facilities as f
+			on b.facid = f.facid
+
+	where 
+		f.name like '%Tennis C%' and
+		b.starttime >= '2012-09-21' and 
+		b.starttime < '2012-09-22'
+		
+order by b.starttime;
 ```
 
 **What I learned:**
--
-
-**Mistakes / gotchas:**
--
-
+- Redundant Sorting
+- When comparing a TIMESTAMP column to a date string without a time component, SQL implicitly treats the string as midnight (2012-09-21 00:00:00).
+Hence implemented this : 
+```
+b.starttime >= '2012-09-21' and 
+b.starttime < '2012-09-22' 
+```
 ---
+## 📖 Entries
 
 #### Q6: Use ORDER BY
 **Link:**
