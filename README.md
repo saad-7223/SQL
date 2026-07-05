@@ -71,44 +71,50 @@ select name from cd.facilities;
 <br>[WHERE condition];
 
 
-## 🏁 Reflections
-A running space for bigger-picture thoughts as you move from basic → advanced.
-- **[Date]** —
+## 📖 SubQuery in SQL
 
-
-```markdown
-#### Q3: List all customers
-**Link:**
+#### Q3: You'd like to get the first and last name of the last member(s) who signed up - not just the date. How can you do that?
+**Link: https://pgexercises.com/questions/basic/agg2.html**
 
 **My query:**
-```sql
--- SELECT * FROM customers;
+```SQL
+select firstname , surname , joindate
+from cd.members
+where joindate = (select max(joindate) from cd.members);
 ```
 
 **What I learned:**
--
+- Learned how query inside a query works for complex extraction of data
+- SELECT column_name
+FROM table_name<br>
+WHERE column_name operator (SELECT column_name FROM table_name WHERE condition);   
 
-**Mistakes / gotchas:**
--
+## 📖 Inner Join
 
----
-
-#### Q4: Select specific columns
-**Link:**
+#### Q4: How can you produce a list of the start times for bookings by members named 'David Farrell'?
+**Link: https://pgexercises.com/questions/joins/simplejoin.html**
 
 **My query:**
 ```sql
--- SELECT id, name, email FROM customers;
+select b.starttime 
+from cd.bookings as b 
+inner join cd.members as m 
+on m.memid = b.memid
+where 
+m.surname = 'Farrell' and m.firstname = 'David';
 ```
 
 **What I learned:**
--
+- learned the syntax and when to use this operation 
+- Use when need to search through 2 tables
+```
+    SELECT table1.column1, table2.column2
+    FROM table1
+    INNER JOIN table2 
+    ON table1.common_column = table2.common_column;   
+```
 
-**Mistakes / gotchas:**
--
-
----
-
+## 📖 Entries
 #### Q5: Filter rows with WHERE
 **Link:**
 
