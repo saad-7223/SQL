@@ -2,25 +2,25 @@
 
 Documenting my progress through [pgexercises.com](https://pgexercises.com), from basic queries to advanced SQL concepts.
 
-## 📌 How to use this journal
+## 📌 What's in the journal
 Each exercise gets an entry with: the question, my query, what I learned, and any mistakes I made along the way. Mistakes are the most valuable part — keep them in, don't delete them.
 
 ## 🗂️ Progress Tracker
 
-| Section | Status | Notes |
-|---|---|---|
-| Basics (SELECT) | ⬜ Not started | |
-| Basics (WHERE, filtering) | ⬜ Not started | |
-| Aggregates | ⬜ Not started | |
-| Joins | ⬜ Not started | |
-| Modifying Data (INSERT/UPDATE/DELETE) | ⬜ Not started | |
-| Recursive Queries | ⬜ Not started | |
+| Section | Status |
+|---|---|
+| Basics (SELECT) |✅|
+| Basics (WHERE, filtering) |✅|
+| Aggregates |🟡|
+| Joins |🟡|
+| Modifying Data (INSERT/UPDATE/DELETE) |⬜|
+| Recursive Queries |⬜|
 
 Update status as: ⬜ Not started → 🟡 In progress → ✅ Done
 
 ---
 
-## 📖 CASE OPeration
+## 📖 CASE Operation
 
 #### Q1: How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question. 
 
