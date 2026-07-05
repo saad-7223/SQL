@@ -22,21 +22,31 @@ Update status as: ⬜ Not started → 🟡 In progress → ✅ Done
 
 ## 📖 Entries
 
-#### Q1: How can you retrieve all the information from the cd.facilities table?
+#### Q1: How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question. 
 
-**Link:** [pgexercises question link]
+**Link:** https://pgexercises.com/questions/basic/classify.html
 
 **My query:**
 ```sql
--- paste your query here
+select name , 
+case 
+    when monthlymaintenance < 100 then 'cheap'
+    else 'expensive'
+end as cost
+from cd.facilities
 ```
 
 **What I learned:**
 
 **Mistakes / gotchas:**
--
-
--
+- caseing in SQL
+- Syntax : 
+    CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        ...
+        ELSE default_result
+    END
 ---
 
 #### Q2: [Next exercise title]
