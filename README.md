@@ -143,23 +143,26 @@ b.starttime >= '2012-09-21' and
 b.starttime < '2012-09-22' 
 ```
 ---
-## 📖 Entries
+## 📖 LEFT OUTER JOIN
 
-#### Q6: Use ORDER BY
-**Link:**
+#### Q6: How can you output a list of all members who have recommended another member? Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).
+**Link: https://pgexercises.com/questions/joins/self2.html**
 
 **My query:**
 ```sql
--- SELECT * FROM products ORDER BY created_at DESC;
+select m.firstname as memfname,m.surname as memsname ,r.firstname as recfname , r.surname as recsname 
+from cd.members as m
+left outer join 
+cd.members as r
+on r.memid = m.recommendedby
+order by m.surname , m.firstname;
 ```
 
 **What I learned:**
--
-
-**Mistakes / gotchas:**
--
-
+- Learned All the joins and implemented here for solution 
+- Learned when to use subquery vs joins 
 ---
+## 📖 Entries
 
 #### Q7: Aggregate with COUNT
 **Link:**
