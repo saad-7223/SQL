@@ -162,23 +162,29 @@ order by m.surname , m.firstname;
 - Learned All the joins and implemented here for solution 
 - Learned when to use subquery vs joins 
 ---
-## 📖 Entries
+## 📖 THREE TABLE JOINS
 
-#### Q7: Aggregate with COUNT
-**Link:**
+#### Q7: How can you produce a list of all members who have used a tennis court? Include in your output the name of the court, and the name of the member formatted as a single column. Ensure no duplicate data, and order by the member name followed by the facility name.
+**Link: https://pgexercises.com/questions/joins/threejoin.html**
 
 **My query:**
 ```sql
--- SELECT COUNT(*) FROM orders;
+SELECT DISTINCT 
+    m.firstname || ' ' || m.surname AS member, 
+    f.name AS facility
+FROM cd.members m
+JOIN cd.bookings b ON m.memid = b.memid
+JOIN cd.facilities f ON b.facid = f.facid
+WHERE f.name LIKE '%ennis court%'
+ORDER BY member, facility;
 ```
 
 **What I learned:**
--
-
-**Mistakes / gotchas:**
--
-
+- Learned about concatination || / CONCAT
+- In postgres the strings used in LIKE operations are case senstive
 ---
+
+## 📖 THREE TABLE JOINS
 
 #### Q8: GROUP BY example
 **Link:**
