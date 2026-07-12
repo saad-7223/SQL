@@ -184,22 +184,36 @@ ORDER BY member, facility;
 - In postgres the strings used in LIKE operations are case senstive
 ---
 
-## 📖 THREE TABLE JOINS
+## 📖 THREE TABLE JOINS Ⅱ
 
-#### Q8: GROUP BY example
-**Link:**
+#### Q8: How can you produce a list of bookings on the day of 2012-09-14 which will cost the member (or guest) more than $30? Remember that guests have different costs to members (the listed costs are per half-hour 'slot'), and the guest user is always ID 0. Include in your output the name of the facility, the name of the member formatted as a single column, and the cost. Order by descending cost, and do not use any subqueries.
+**Link: https://pgexercises.com/questions/joins/threejoin2.html**
 
 **My query:**
 ```sql
--- SELECT customer_id, SUM(amount) FROM orders GROUP BY customer_id;
+select m.firstname||' '||m.surname as member , f.name as facility, 
+case 
+	when b.memid = 0 then f.guestcost * b.slots
+	else f.membercost * b.slots
+end as cost
+from cd.members m
+join cd.bookings b on m.memid=b.memid
+join cd.facilities f on f.facid = b.facid
+
+where b.starttime >= '2012-09-14'
+and b.starttime < '2012-09-15'
+and (
+  case
+  	when b.memid = 0 then f.guestcost * b.slots
+	else f.membercost * b.slots
+  end
+ ) > 30
+order by cost desc;
 ```
 
 **What I learned:**
--
-
-**Mistakes / gotchas:**
--
-
+- Learned about multiple joins with case operations 
+- whole day, you want everything greater than or equal to the start of the 14th, and strictly less than the start of the 15th - related to starttime 
 ---
 
 #### Q9: JOIN two tables
