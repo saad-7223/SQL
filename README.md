@@ -213,7 +213,7 @@ order by cost desc;
 
 **What I learned:**
 - Learned about multiple joins with case operations 
-- whole day, you want everything greater than or equal to the start of the 14th, and strictly less than the start of the 15th - related to starttime 
+- whole day, you want everything greater than or equal to the start of the 14th, and strictly less than the start of the 15th - related to starttime  
 ---
 
 #### Q9: JOIN two tables
